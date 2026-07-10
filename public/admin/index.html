@@ -240,7 +240,7 @@
       const optimized = await optimizeImage(file);
       const form = new FormData();
       form.append('file', optimized);
-      return api('/api/admin/images', { method: 'POST', body: form });
+      return api('/api/admin/upload-image', { method: 'POST', body: form });
     }
 
     function scheduleDelete(url) {
