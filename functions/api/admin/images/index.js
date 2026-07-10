@@ -1,4 +1,4 @@
-import { json, methodNotAllowed } from "../../_lib/responses.js";
+import { json, methodNotAllowed } from "../../../_lib/responses.js";
 
 const ALLOWED_TYPES = new Map([
   ["image/jpeg", "jpg"],
