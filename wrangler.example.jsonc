@@ -1,0 +1,23 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "lamawary-site",
+  "compatibility_date": "2026-07-10",
+  "pages_build_output_dir": "public",
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "lamawary-site",
+      "database_id": "COLE_AQUI_O_ID_DO_D1"
+    }
+  ],
+  "r2_buckets": [
+    {
+      "binding": "MEDIA",
+      "bucket_name": "lamawary-media"
+    }
+  ],
+  "vars": {
+    "ACCESS_TEAM_DOMAIN": "SEU-TIME.cloudflareaccess.com",
+    "ACCESS_AUD": "COLE_AQUI_O_AUDIENCE_DA_APLICACAO_API"
+  }
+}

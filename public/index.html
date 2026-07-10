@@ -1,0 +1,305 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0b090c">
+  <meta name="description" content="Lama’s Artworks — portfólio de Lamawary.">
+  <title>Lama’s Artworks — Portfólio</title>
+  <style>
+    :root{
+      --bg:#0b090c;
+      --panel:#151117;
+      --paper:#f7f2f6;
+      --muted:#b9adb7;
+      --line:rgba(255,255,255,.11);
+      --red:#ec170d;
+      --wine:#740020;
+      --purple:#690066;
+      --violet:#8b00df;
+      --radius:28px;
+      --shadow:0 28px 80px rgba(0,0,0,.38);
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      color:var(--paper);
+      background:
+        radial-gradient(circle at 8% 2%,rgba(236,23,13,.12),transparent 28rem),
+        radial-gradient(circle at 92% 8%,rgba(139,0,223,.14),transparent 32rem),
+        var(--bg);
+      font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+      line-height:1.55;
+      overflow-x:hidden;
+    }
+    a{color:inherit;text-decoration:none}
+    button{font:inherit}
+    .wrap{width:min(1120px,calc(100% - 40px));margin:auto}
+
+    .topbar{
+      position:sticky;top:0;z-index:50;
+      background:rgba(11,9,12,.82);
+      backdrop-filter:blur(18px);
+      border-bottom:1px solid rgba(255,255,255,.07);
+    }
+    nav{height:72px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+    .brand{font-size:13px;font-weight:900;letter-spacing:.16em;text-transform:uppercase}
+    .nav-right{display:flex;align-items:center;gap:18px}
+    .navlinks{display:flex;gap:24px;color:#d4cbd2;font-size:13px}
+    .navlinks a:hover{color:#fff}
+    .lang-switch{display:flex;padding:3px;border:1px solid var(--line);border-radius:999px;background:rgba(255,255,255,.025)}
+    .lang-btn{border:0;background:transparent;color:#9e939c;min-width:41px;height:32px;border-radius:999px;font-size:11px;font-weight:800;cursor:pointer}
+    .lang-btn.active{color:white;background:linear-gradient(90deg,var(--wine),var(--violet))}
+    .button{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:0 21px;border-radius:999px;border:1px solid transparent;font-size:13px;font-weight:800;transition:.2s ease}
+    .button:hover{transform:translateY(-2px)}
+    .button.primary{background:linear-gradient(100deg,var(--red),var(--wine) 50%,var(--violet));box-shadow:0 15px 36px rgba(105,0,102,.25)}
+    .button.secondary{border-color:var(--line);background:rgba(255,255,255,.03)}
+
+    .hero{min-height:650px;display:grid;grid-template-columns:1.1fr .9fr;gap:80px;align-items:center;padding:80px 0}
+    .eyebrow,.kicker{font-size:10px;font-weight:900;letter-spacing:.24em;text-transform:uppercase;color:#d35a75}
+    h1,h2{font-family:Georgia,"Times New Roman",serif;font-weight:500}
+    h1{font-size:clamp(58px,8vw,102px);line-height:.92;letter-spacing:-.06em;margin:18px 0 24px}
+    h1 em{font-style:italic;background:linear-gradient(90deg,#ff5c54,#bd62ff);-webkit-background-clip:text;background-clip:text;color:transparent}
+    .lead{max-width:560px;margin:0 0 31px;color:var(--muted);font-size:18px}
+    .actions{display:flex;gap:12px;flex-wrap:wrap}
+    .hero-art{position:relative;min-height:470px}
+    .shape{position:absolute;inset:8% 4% 4% 8%;border-radius:42% 58% 63% 37%/48% 38% 62% 52%;background:linear-gradient(135deg,var(--red),var(--wine) 34%,var(--purple) 66%,var(--violet));box-shadow:var(--shadow)}
+    .shape::before{content:"";position:absolute;inset:13%;border:1px solid rgba(255,255,255,.22);border-radius:inherit;transform:rotate(9deg)}
+    .shape::after{content:"LAMA’S\A ARTWORKS";white-space:pre;position:absolute;left:13%;bottom:13%;font-family:Georgia,serif;font-size:clamp(36px,4vw,58px);line-height:.88;letter-spacing:-.04em}
+    .mini-tag{position:absolute;right:0;top:12%;padding:12px 16px;border:1px solid var(--line);border-radius:999px;background:rgba(17,13,18,.8);font-size:10px;letter-spacing:.16em;text-transform:uppercase}
+
+    section{padding:94px 0}
+    .section-head{margin-bottom:35px}
+    h2{font-size:clamp(42px,5vw,66px);line-height:.98;letter-spacing:-.045em;margin:9px 0 0}
+
+    .about{display:grid;grid-template-columns:.82fr 1.18fr;gap:72px;align-items:center}
+    .about-photo{height:500px;border-radius:var(--radius);border:1px solid var(--line);background:linear-gradient(135deg,var(--red),var(--wine) 42%,var(--purple),var(--violet));background-size:cover;background-position:center;box-shadow:var(--shadow);position:relative;overflow:hidden;display:grid;place-items:center}
+    .about-photo::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 55%,rgba(8,6,9,.55))}
+    .about-placeholder{position:relative;z-index:1;font-size:10px;font-weight:900;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.74);padding:30px;text-align:center}
+    .about-role{display:inline-block;margin:16px 0 20px;color:#d7cad3;font-size:12px;letter-spacing:.12em;text-transform:uppercase}
+    .about-line{font-family:Georgia,"Times New Roman",serif;font-size:clamp(30px,3.6vw,48px);line-height:1.08;letter-spacing:-.035em;margin:0 0 22px}
+    .about-line em{font-style:italic;color:#cd72ff}
+    .about-bio{max-width:630px;margin:0;color:var(--muted);font-size:17px;white-space:pre-line}
+
+    .work-section{border-top:1px solid rgba(255,255,255,.07)}
+    .work-top{display:flex;justify-content:space-between;align-items:end;gap:30px;margin-bottom:34px}
+    .work-top p{margin:0;color:var(--muted);font-size:14px}
+    .gallery{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:18px;grid-auto-rows:300px}
+    .work-card{position:relative;grid-column:span 4;border-radius:24px;overflow:hidden;border:1px solid var(--line);background:var(--panel);min-height:300px}
+    .work-card:first-child{grid-column:span 7;grid-row:span 2}
+    .work-card:nth-child(2),.work-card:nth-child(3){grid-column:span 5}
+    .work-bg{position:absolute;inset:0;background:radial-gradient(circle at 20% 20%,rgba(236,23,13,.6),transparent 33%),radial-gradient(circle at 80% 75%,rgba(139,0,223,.65),transparent 40%),#181119;background-size:cover;background-position:center;transition:.35s ease}
+    .work-card:nth-child(2n) .work-bg{background:radial-gradient(circle at 80% 15%,rgba(139,0,223,.62),transparent 40%),linear-gradient(135deg,#180f18,#4d001d)}
+    .work-card:nth-child(3n) .work-bg{background:radial-gradient(circle at 12% 88%,rgba(236,23,13,.58),transparent 40%),linear-gradient(135deg,#310016,#130f16 62%,#590077)}
+    .work-card:hover .work-bg{transform:scale(1.025)}
+    .work-copy{position:absolute;left:0;right:0;bottom:0;padding:65px 23px 22px;background:linear-gradient(transparent,rgba(7,5,8,.9))}
+    .work-copy h3{font-family:Georgia,serif;font-size:27px;font-weight:500;margin:0 0 3px}
+    .work-copy p{margin:0;color:#c3b7c1;font-size:11px;text-transform:uppercase;letter-spacing:.1em}
+    .gallery-empty{grid-column:1/-1;min-height:280px;display:grid;place-items:center;border:1px dashed var(--line);border-radius:24px;color:var(--muted);text-align:center;padding:30px}
+
+    .instagram{padding:72px;text-align:center;border:1px solid var(--line);border-radius:34px;background:radial-gradient(circle at 10% 10%,rgba(236,23,13,.2),transparent 35%),radial-gradient(circle at 90% 90%,rgba(139,0,223,.25),transparent 38%),#130f15;box-shadow:var(--shadow);margin-bottom:94px}
+    .instagram h2{max-width:720px;margin:10px auto 16px}
+    .instagram p{max-width:560px;margin:0 auto 27px;color:var(--muted)}
+    .status{display:inline-flex;align-items:center;gap:8px;padding:8px 12px;border:1px solid rgba(236,23,13,.3);border-radius:999px;background:rgba(236,23,13,.09);color:#ff8b85;font-size:10px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;margin-bottom:10px}
+    .status::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--red)}
+    .status.closed{border-color:var(--line);background:rgba(255,255,255,.04);color:#b7abb4}.status.closed::before{background:#8f838d}
+
+    footer{border-top:1px solid rgba(255,255,255,.08);color:#8f838d;font-size:11px}
+    .foot{min-height:88px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+
+    @media(max-width:920px){
+      .navlinks{display:none}.hero{grid-template-columns:1fr;gap:36px;padding-top:64px}.hero-art{min-height:420px}.about{grid-template-columns:1fr;gap:42px}.about-photo{width:min(560px,100%);height:460px}.gallery{grid-template-columns:repeat(2,minmax(0,1fr));grid-auto-rows:300px}.work-card,.work-card:nth-child(n),.work-card:first-child{grid-column:span 1;grid-row:auto}.work-card:first-child{grid-column:1/-1;min-height:450px}
+    }
+    @media(max-width:650px){
+      .wrap{width:min(100% - 26px,1120px)}nav{height:66px}.nav-right>.button{display:none}.brand{font-size:11px}.nav-right{gap:8px}.lang-btn{min-width:38px}
+      .hero{min-height:auto;padding:55px 0 58px}.hero-art{min-height:350px}.mini-tag{right:3%;top:6%}section{padding:72px 0}.about-photo{height:390px}.work-top{align-items:start;flex-direction:column}.gallery{grid-template-columns:1fr;grid-auto-rows:280px}.work-card,.work-card:nth-child(n),.work-card:first-child{grid-column:1;min-height:280px}.work-card:first-child{min-height:390px}.instagram{padding:50px 20px;margin-bottom:72px}.foot{padding:24px 0;align-items:flex-start;flex-direction:column;justify-content:center}
+    }
+  </style>
+</head>
+<body>
+<header class="topbar">
+  <nav class="wrap">
+    <a class="brand" href="#top">Lama’s Artworks</a>
+    <div class="nav-right">
+      <div class="navlinks">
+        <a href="#about" data-i18n="navAbout">Sobre</a>
+        <a href="#work" data-i18n="navWork">Trabalhos</a>
+      </div>
+      <div class="lang-switch" aria-label="Escolher idioma">
+        <button class="lang-btn active" type="button" data-lang="pt-BR">PT</button>
+        <button class="lang-btn" type="button" data-lang="en">EN</button>
+      </div>
+      <a class="button primary instagram-link" href="https://www.instagram.com/lamawary_/" target="_blank" rel="noopener">Instagram ↗</a>
+    </div>
+  </nav>
+</header>
+
+<main id="top">
+  <section class="hero wrap">
+    <div>
+      <div class="eyebrow" data-i18n="heroEyebrow">Portfólio de Lamawary</div>
+      <h1 data-i18n-html="heroTitle">Ilustrações com <em>identidade.</em></h1>
+      <p class="lead" data-i18n="heroLead">Uma seleção de trabalhos digitais e tradicionais.</p>
+      <div class="actions">
+        <a class="button primary" href="#about" data-i18n="heroAbout">Sobre mim</a>
+        <a class="button secondary instagram-link" href="https://www.instagram.com/lamawary_/" target="_blank" rel="noopener">Instagram ↗</a>
+      </div>
+    </div>
+    <div class="hero-art" aria-hidden="true">
+      <div class="shape"></div>
+      <div class="mini-tag" data-i18n="heroTag">Digital · tradicional</div>
+    </div>
+  </section>
+
+  <section id="about" class="wrap about">
+    <div class="about-photo" id="aboutPhoto" role="img" aria-label="Foto ou arte de perfil da artista">
+      <span class="about-placeholder" id="aboutPhotoPlaceholder">Foto ou arte de perfil</span>
+    </div>
+    <div>
+      <div class="kicker" id="aboutKicker">Sobre mim</div>
+      <h2 id="aboutName">Lamawary</h2>
+      <span class="about-role" id="aboutRole">Artista visual</span>
+      <p class="about-line"><span id="aboutQuote">Crio personagens e criaturas</span> <em id="aboutHighlight">com foco em expressão e design.</em></p>
+      <p class="about-bio" id="aboutBio">Trabalho com ilustração digital e tradicional, em projetos autorais e encomendas.</p>
+    </div>
+  </section>
+
+  <section id="work" class="work-section">
+    <div class="wrap">
+      <div class="work-top">
+        <div><div class="kicker" data-i18n="workKicker">Portfólio</div><h2 data-i18n="workTitle">Trabalhos selecionados</h2></div>
+        <p data-i18n="workText">Mais trabalhos no Instagram.</p>
+      </div>
+      <div class="gallery" id="gallery" aria-live="polite"></div>
+    </div>
+  </section>
+
+  <section class="wrap">
+    <div class="instagram">
+      <span class="status" id="commissionStatus">Encomendas abertas</span>
+      <div class="kicker" data-i18n="instagramKicker">Instagram</div>
+      <h2 data-i18n="instagramTitle">Acompanhe meu trabalho.</h2>
+      <p data-i18n="instagramText">Novas artes, processos e contato direto.</p>
+      <a class="button primary instagram-link" href="https://www.instagram.com/lamawary_/" target="_blank" rel="noopener" data-i18n="instagramButton">Acessar Instagram ↗</a>
+    </div>
+  </section>
+</main>
+
+<footer><div class="wrap foot"><span data-i18n="footerLeft">© 2026 Lama’s Artworks.</span><span>@lamawary_</span></div></footer>
+
+<script id="fallbackContent" type="application/json">
+{
+  "version": 1,
+  "site": {
+    "artistName": "Lamawary",
+    "instagramUrl": "https://www.instagram.com/lamawary_/",
+    "commissionsOpen": true,
+    "commissionStatus": {"pt-BR": "Encomendas abertas", "en": "Commissions open"}
+  },
+  "about": {
+    "image": "",
+    "positionX": 50,
+    "positionY": 50,
+    "pt-BR": {
+      "role": "Artista visual",
+      "kicker": "Sobre mim",
+      "quote": "Crio personagens e criaturas",
+      "highlight": "com foco em expressão e design.",
+      "bio": "Trabalho com ilustração digital e tradicional, em projetos autorais e encomendas.",
+      "photoAlt": "Foto ou arte de perfil da artista"
+    },
+    "en": {
+      "role": "Visual artist",
+      "kicker": "About me",
+      "quote": "I create characters and creatures",
+      "highlight": "with a focus on expression and design.",
+      "bio": "I work with digital and traditional illustration across original projects and commissions.",
+      "photoAlt": "Artist profile photo or artwork"
+    }
+  },
+  "gallery": [
+    {"id":"characters","image":"","positionX":50,"positionY":50,"pt-BR":{"title":"Personagens","subtitle":"Trabalho autoral","alt":"Ilustração de personagem"},"en":{"title":"Characters","subtitle":"Original work","alt":"Character illustration"}},
+    {"id":"creatures","image":"","positionX":50,"positionY":50,"pt-BR":{"title":"Criaturas","subtitle":"Estudos e projetos","alt":"Ilustração de criatura"},"en":{"title":"Creatures","subtitle":"Studies and projects","alt":"Creature illustration"}},
+    {"id":"commissions","image":"","positionX":50,"positionY":50,"pt-BR":{"title":"Encomendas","subtitle":"Projetos personalizados","alt":"Arte feita sob encomenda"},"en":{"title":"Commissions","subtitle":"Custom projects","alt":"Commissioned artwork"}}
+  ]
+}
+</script>
+<script>
+  const translations={
+    'pt-BR':{
+      title:'Lama’s Artworks — Portfólio',description:'Lama’s Artworks — portfólio de Lamawary.',navAbout:'Sobre',navWork:'Trabalhos',heroEyebrow:'Portfólio de Lamawary',heroTitle:'Ilustrações com <em>identidade.</em>',heroLead:'Uma seleção de trabalhos digitais e tradicionais.',heroAbout:'Sobre mim',heroTag:'Digital · tradicional',workKicker:'Portfólio',workTitle:'Trabalhos selecionados',workText:'Mais trabalhos no Instagram.',instagramKicker:'Instagram',instagramTitle:'Acompanhe meu trabalho.',instagramText:'Novas artes, processos e contato direto.',instagramButton:'Acessar Instagram ↗',footerLeft:'© 2026 Lama’s Artworks.'
+    },
+    en:{
+      title:'Lama’s Artworks — Portfolio',description:'Lama’s Artworks — Lamawary’s portfolio.',navAbout:'About',navWork:'Work',heroEyebrow:'Lamawary’s portfolio',heroTitle:'Illustration with <em>identity.</em>',heroLead:'A selection of digital and traditional work.',heroAbout:'About me',heroTag:'Digital · traditional',workKicker:'Portfolio',workTitle:'Selected work',workText:'More work on Instagram.',instagramKicker:'Instagram',instagramTitle:'Follow my work.',instagramText:'New art, process, and direct contact.',instagramButton:'Open Instagram ↗',footerLeft:'© 2026 Lama’s Artworks.'
+    }
+  };
+  const fallbackContent=JSON.parse(document.getElementById('fallbackContent').textContent);
+  let siteContent=structuredClone(fallbackContent);
+  function readSavedLanguage(){try{return localStorage.getItem('lamas-artworks-language')}catch(error){return null}}
+  function saveLanguage(value){try{localStorage.setItem('lamas-artworks-language',value)}catch(error){}}
+  let currentLang=readSavedLanguage()||(navigator.language&&navigator.language.toLowerCase().startsWith('pt')?'pt-BR':'en');
+  if(!translations[currentLang])currentLang='pt-BR';
+  const aboutEls={photo:document.getElementById('aboutPhoto'),placeholder:document.getElementById('aboutPhotoPlaceholder'),name:document.getElementById('aboutName'),role:document.getElementById('aboutRole'),kicker:document.getElementById('aboutKicker'),quote:document.getElementById('aboutQuote'),highlight:document.getElementById('aboutHighlight'),bio:document.getElementById('aboutBio')};
+
+  function renderAbout(){
+    const about=siteContent.about||fallbackContent.about;
+    const content=about[currentLang]||about['pt-BR']||fallbackContent.about[currentLang];
+    aboutEls.name.textContent=siteContent.site?.artistName||'Lamawary';
+    aboutEls.role.textContent=content.role||'';
+    aboutEls.kicker.textContent=content.kicker||'';
+    aboutEls.quote.textContent=content.quote||'';
+    aboutEls.highlight.textContent=content.highlight||'';
+    aboutEls.bio.textContent=content.bio||'';
+    aboutEls.photo.setAttribute('aria-label',content.photoAlt||'');
+    aboutEls.photo.style.backgroundPosition=`${Number(about.positionX??50)}% ${Number(about.positionY??50)}%`;
+    if(about.image){
+      aboutEls.photo.style.backgroundImage=`linear-gradient(180deg,transparent 55%,rgba(8,6,9,.55)),url("${about.image}")`;
+      aboutEls.placeholder.style.display='none';
+    }else{
+      aboutEls.photo.style.backgroundImage='';
+      aboutEls.placeholder.style.display='block';
+      aboutEls.placeholder.textContent=currentLang==='pt-BR'?'Foto ou arte de perfil':'Profile photo or artwork';
+    }
+  }
+
+  function renderGallery(){
+    const gallery=document.getElementById('gallery');gallery.innerHTML='';
+    const works=Array.isArray(siteContent.gallery)?siteContent.gallery:[];
+    if(!works.length){const empty=document.createElement('div');empty.className='gallery-empty';empty.textContent=currentLang==='pt-BR'?'Novos trabalhos em breve.':'New work coming soon.';gallery.appendChild(empty);return}
+    works.forEach(work=>{
+      const text=work[currentLang]||work['pt-BR']||{};
+      const card=document.createElement('article');card.className='work-card';card.setAttribute('aria-label',text.alt||text.title||'');
+      const bg=document.createElement('div');bg.className='work-bg';
+      if(work.image){bg.style.backgroundImage=`linear-gradient(180deg,rgba(7,4,8,.02),rgba(7,4,8,.15)),url("${work.image}")`;bg.style.backgroundPosition=`${Number(work.positionX??50)}% ${Number(work.positionY??50)}%`;bg.style.backgroundSize='cover'}
+      const copy=document.createElement('div');copy.className='work-copy';
+      const title=document.createElement('h3');title.textContent=text.title||'';
+      const sub=document.createElement('p');sub.textContent=text.subtitle||'';
+      copy.append(title,sub);card.append(bg,copy);gallery.appendChild(card);
+    });
+  }
+
+  function renderSettings(){
+    const settings=siteContent.site||fallbackContent.site;
+    const instagram=settings.instagramUrl||fallbackContent.site.instagramUrl;
+    document.querySelectorAll('.instagram-link').forEach(link=>link.href=instagram);
+    const status=document.getElementById('commissionStatus');
+    status.textContent=settings.commissionStatus?.[currentLang]||(currentLang==='pt-BR'?'Encomendas abertas':'Commissions open');
+    status.classList.toggle('closed',!settings.commissionsOpen);
+  }
+  function renderDynamic(){renderAbout();renderGallery();renderSettings()}
+  function setLanguage(lang){
+    currentLang=translations[lang]?lang:'pt-BR';saveLanguage(currentLang);document.documentElement.lang=currentLang;
+    const t=translations[currentLang];document.title=t.title;document.querySelector('meta[name="description"]').setAttribute('content',t.description);
+    document.querySelectorAll('[data-i18n]').forEach(el=>{const k=el.dataset.i18n;if(t[k]!==undefined)el.textContent=t[k]});
+    document.querySelectorAll('[data-i18n-html]').forEach(el=>{const k=el.dataset.i18nHtml;if(t[k]!==undefined)el.innerHTML=t[k]});
+    document.querySelectorAll('.lang-btn').forEach(btn=>btn.classList.toggle('active',btn.dataset.lang===currentLang));renderDynamic();
+  }
+  document.querySelectorAll('.lang-btn').forEach(btn=>btn.addEventListener('click',()=>setLanguage(btn.dataset.lang)));
+  async function loadPublishedContent(){
+    try{const response=await fetch('/api/content',{headers:{accept:'application/json'}});if(!response.ok)throw new Error('content');siteContent=await response.json()}catch(error){console.warn('Usando conteúdo local.',error)}finally{setLanguage(currentLang)}
+  }
+  loadPublishedContent();
+</script>
+</body>
+</html>

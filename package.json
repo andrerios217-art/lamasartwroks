@@ -1,0 +1,17 @@
+{
+  "name": "lamas-artworks-cms",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "wrangler pages dev public --d1 DB=lamawary-site --r2 MEDIA=lamawary-media",
+    "deploy": "wrangler pages deploy public",
+    "check": "node scripts/check.mjs"
+  },
+  "dependencies": {
+    "jose": "^6.2.3"
+  },
+  "devDependencies": {
+    "wrangler": "^4.110.0"
+  }
+}
